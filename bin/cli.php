@@ -1,11 +1,12 @@
 <?php
 
+
 try {
     unset($argv[0]);
 
     // Autoload function Register
     spl_autoload_register(function (string $className) {
-        require_once __DIR__ . '/../src/Controllers/' . $className . '.php';
+        require_once __DIR__ . '/../src/' . $className . '.php';
     });
 
     //Make full ClassName, adding Namespace
