@@ -1,6 +1,5 @@
 <?php
 
-
 try {
     unset($argv[0]);
 
@@ -10,9 +9,9 @@ try {
     });
 
     //Make full ClassName, adding Namespace
-    $className = '\\holyCommand\\Controllers\\' . array_shift($argv);
+    $className = '\\Kernel\\Controllers\\' . array_shift($argv);
     if (!class_exists($className)) {
-        throw new \holyCommand\Exceptions\CliException('Class "' . $className . '" not found ');
+        throw new \Kernel\Exceptions\CliException('Class "' . $className . '" not found ');
     }
 
     //Prepare Arghs list
@@ -30,6 +29,6 @@ try {
     // Make Class Instance
     $class = new $className($params);
     $class->execute();
-} catch (\holyCommand\Exceptions\CliException $e) {
+} catch (\Kernel\Exceptions\CliException $e) {
     echo 'Error: ' . $e->getMessage();
 }

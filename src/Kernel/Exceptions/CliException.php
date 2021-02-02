@@ -1,5 +1,5 @@
 <?php
-namespace holyCommand\Exceptions;
+namespace Kernel\Exceptions;
 
 class CliException extends \Exception
 {
