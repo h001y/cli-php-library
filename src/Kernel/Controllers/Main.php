@@ -23,6 +23,11 @@ abstract class Main
         return $this->params[$paramName] ?? null;
     }
 
+    protected function getArgument(string $argumentName)
+    {
+        return $this->params[$argumentName] ?? null;
+    }
+
     protected function ensureParamExists(string $paramName)
     {
         if (!isset($this->params[$paramName])) {
