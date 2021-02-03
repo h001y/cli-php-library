@@ -17,15 +17,7 @@ try {
     //Prepare Arghs list
     $params = [];
     foreach ($argv as $argument){
-        //preg_match('{"*"}', $argument, $matches);
-        var_dump($argument);
-        if (!empty($matches)){
-            var_dump($matches);
-            /*$paramName = $matches[1];
-            $paramValue = $matches[2];
 
-            $params[$paramName] = $paramValue;*/
-        }
     }
 
     // Make Class Instance
