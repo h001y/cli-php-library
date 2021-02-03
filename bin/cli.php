@@ -14,14 +14,9 @@ try {
         throw new \Kernel\Exceptions\CliException('Class "' . $className . '" not found ');
     }
 
-    //Prepare Arghs list
-    $params = [];
-    foreach ($argv as $argument){
-
-    }
-
+    echo 'Called command name:'.$className;
     // Make Class Instance
-    $class = new $className($params);
+    $class = new $className($argv);
     $class->execute();
 } catch (\Kernel\Exceptions\CliException $e) {
     echo 'Error: ' . $e->getMessage();

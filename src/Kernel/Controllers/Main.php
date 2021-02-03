@@ -6,11 +6,11 @@ use Kernel\Exceptions\CliException;
 
 abstract class Main
 {
-    private $params;
+    private $string;
 
-    public function __construct(array $params)
+    public function __construct(array $string)
     {
-        $this->params = $params;
+        $this->string = $string;
         $this->checkParams();
     }
 
@@ -18,20 +18,16 @@ abstract class Main
 
     abstract protected function checkParams();
 
-    protected function getParam(string $paramName)
+    protected function getParam() : array
     {
-        return $this->params[$paramName] ?? null;
-    }
-
-    protected function getArgument(string $argumentName)
-    {
-        return $this->params[$argumentName] ?? null;
-    }
-
-    protected function ensureParamExists(string $paramName)
-    {
-        if (!isset($this->params[$paramName])) {
-            throw new CliException('Param with name "' . $paramName . '" is not set!');
+        $result = [];
+        foreach ($this->string as $item){
+            preg_match('{.*}', $item, $params);
+            if(!empty($params)){
+                $result[] = $params;
+            }
         }
+        return $result;
     }
+
 }
