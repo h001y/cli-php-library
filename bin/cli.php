@@ -17,12 +17,14 @@ try {
     //Prepare Arghs list
     $params = [];
     foreach ($argv as $argument){
-        preg_match('/^-(.+)=(.+)$/', $argument, $matches);
+        //preg_match('{"*"}', $argument, $matches);
+        var_dump($argument);
         if (!empty($matches)){
-            $paramName = $matches[1];
+            var_dump($matches);
+            /*$paramName = $matches[1];
             $paramValue = $matches[2];
 
-            $params[$paramName] = $paramValue;
+            $params[$paramName] = $paramValue;*/
         }
     }
 
