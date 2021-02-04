@@ -20,12 +20,13 @@ abstract class Main
 
     protected function getParam() : array
     {
-        $result = [];
+        $result['arguments'] = [];
+        $result['parametrs'] = [];
         foreach ($this->string as $item){
             if(preg_match('\'{.*}\'', $item)){
-                $result['arguments'][] = $item;
+                $result['arguments'] = array_merge($result['arguments'], explode(',', $item));
             } elseif(preg_match('\'\\[.*\\]\'', $item)){
-                $result['parametrs'][] = $item;
+                $result['parametrs'] = explode(',', $item);
             }
         }
         return $result;
