@@ -22,9 +22,10 @@ abstract class Main
     {
         $result = [];
         foreach ($this->string as $item){
-            preg_match('{.*}', $item, $params);
-            if(!empty($params)){
-                $result[] = $params;
+            if(preg_match('\'{.*}\'', $item)){
+                $result['arguments'][] = $item;
+            } elseif(preg_match('\'\\[.*\\]\'', $item)){
+                $result['parametrs'][] = $item;
             }
         }
         return $result;

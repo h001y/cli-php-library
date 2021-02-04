@@ -12,7 +12,7 @@ Class Output extends Main
 
     public function execute()
     {
-        echo '123 \n\n';
+        var_dump( $this->getParam());
     }
 }
 
