@@ -27,6 +27,8 @@ abstract class Main
                 $result['arguments'] = array_merge($result['arguments'], explode(',', $item));
             } elseif(preg_match('\'\\[.*\\]\'', $item)){
                 $result['parametrs'] = explode(',', $item);
+
+
             }
         }
         return $result;
