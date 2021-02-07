@@ -8,10 +8,11 @@ Class NewClass
     {
 
     }
+
     // create UserController
-    public function addController()
+    public function add($className)
     {
-        $filename = 'src/UserControllers/' . $class . '.php';
+        $filename = 'src/UserControllers/' . $className . '.php';
         $controller_text = '<?php echo "example";';
         file_put_contents($filename, $controller_text);
     }

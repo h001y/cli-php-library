@@ -14,5 +14,10 @@ Class Output extends Main
     {
         var_dump( $this->getParam());
     }
+
+    public function executeEmty()
+    {
+        echo 'Output for empty command name';
+    }
 }
 
