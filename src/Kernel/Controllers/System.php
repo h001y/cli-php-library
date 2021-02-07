@@ -11,18 +11,17 @@ class System
      */
     public function isSystemClassExist(string $className) : bool
     {
-        return class_exists('/Kernel/Controllers/System.php');
+        return file_exists('src/Kernel/Controllers/' . $className . '.php');
     }
 
     /**
-     * Class check existing class from command name in UserControllers,
-     *
+     * Class check existing class from command name in UserControllers
      * @param string $className
      * @return bool
      */
     public function isUsersClassExist(string $className) : bool
     {
-        return class_exists('src/UserControllers/' . $className . '.php');
+        return file_exists('src/UserControllers/' . $className . '.php');
     }
 
     public function addUserClass($className)

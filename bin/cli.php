@@ -30,7 +30,7 @@ try {
 
     if(!$System->isUsersClassExist($inputClassName)){
         echo 'User class does not exist'.PHP_EOL;
-        $System->addUserClass($inputClassName);
+      $System->addUserClass($inputClassName);
     } else {
 
     }
