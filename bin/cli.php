@@ -3,32 +3,29 @@
 try {
     unset($argv[0]);
 
-    // Autoload function Register
-    spl_autoload_register(function (string $className) {
-        require_once __DIR__ . '/../src/' . $className . '.php';
-    });
-
     //Make full ClassName, adding Namespace
-    $className = '\\Kernel\\Controllers\\' . array_shift($argv);
     $class = array_shift($argv);
+    $className = '\\Kernel\\Controllers\\' . $class;
+
     if (!class_exists($className)) {
-        $filename = $class;
+        $filename = 'src/UserControllers/' . $class . '.php';
         $controller_text = '<?php echo "example";';
 
-        //create new Controller
-        $new_controller = fopen($filename, 'w');
+        // create UserController
+        file_put_contents($filename, $controller_text);
 
-        //add text to controller
-        fwrite($filename, $controller_text);
-
-        //close file
-        fclose($filename);
+    } else {
+        // Autoload function Register
+        spl_autoload_register(function (string $className) {
+            require_once __DIR__ . '/../src/' . $className . '.php';
+        });
+        echo 'Called command name:'.$class;
+        // Make Class Instance
+        $class = new $className($argv);
+        $class->execute();
     }
 
-    echo 'Called command name:'.$className;
-    // Make Class Instance
-    $class = new $className($argv);
-    $class->execute();
+
 } catch (\Kernel\Exceptions\CliException $e) {
     echo 'Error: ' . $e->getMessage();
 }
