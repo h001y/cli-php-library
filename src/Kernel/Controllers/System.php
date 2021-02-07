@@ -4,14 +4,24 @@ namespace Kernel\Controllers;
 
 class System
 {
-    public function isSystemClassExist($className)
+    /**
+     * Class check existing class from command name in Kernel
+     * @param $className
+     * @return bool
+     */
+    public function isSystemClassExist(string $className) : bool
     {
-        return class_exists('\\Kernel\\Controllers\\System' . $className. '.php');
+        return class_exists('\\Kernel\\Controllers\\' . $className. '.php');
     }
 
-    public function isUsersClassExist($className)
+    /**
+     * Class check existing class from command name in UserControllers
+     * @param string $className
+     * @return bool
+     */
+    public function isUsersClassExist(string $className) : bool
     {
-        return class_exists('\\UserControllers' . $className. '.php');
+        return class_exists('\\UserControllers\\' . $className. '.php');
     }
 
     public function addUserClass($className)

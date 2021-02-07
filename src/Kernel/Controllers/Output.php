@@ -17,7 +17,7 @@ Class Output extends Main
 
     public function executeEmty()
     {
-        echo 'Output for empty command name';
+        return 'Output for empty command name'.PHP_EOL;
     }
 }
 
