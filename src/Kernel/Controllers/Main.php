@@ -28,7 +28,6 @@ abstract class Main
             } elseif(preg_match('\'\\[.*\\]\'', $item)){
                 $result['parametrs'] = explode(',', $item);
 
-
             }
         }
         return $result;

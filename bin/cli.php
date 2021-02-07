@@ -10,8 +10,19 @@ try {
 
     //Make full ClassName, adding Namespace
     $className = '\\Kernel\\Controllers\\' . array_shift($argv);
+    $class = array_shift($argv);
     if (!class_exists($className)) {
-        throw new \Kernel\Exceptions\CliException('Class "' . $className . '" not found ');
+        $filename = $class;
+        $controller_text = '<?php echo "example";';
+
+        //create new Controller
+        $new_controller = fopen($filename, 'w');
+
+        //add text to controller
+        fwrite($filename, $controller_text);
+
+        //close file
+        fclose($filename);
     }
 
     echo 'Called command name:'.$className;
