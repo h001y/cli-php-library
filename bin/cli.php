@@ -2,8 +2,9 @@
 
 try {
     unset($argv[0]);
-    $systemClassName = '\\Kernel\\Controllers\\System';
-    $outputClassName = '\\Kernel\\Controllers\\Output';
+    $conf = include('config.php');
+    $systemClassName = $conf['systemClass'];
+    $outputClassName = $conf['outputClass'];
     spl_autoload_register(function (string $systemClassName) {
         require_once __DIR__ . '/../src/' . $systemClassName . '.php';
     });
@@ -17,6 +18,7 @@ try {
 
     //Make full ClassName, adding Namespace
     $inputClassName = array_shift($argv);
+    $inputClass = '\\Kernel\\Controllers\\' . $inputClassName. '.php';
 
     if (empty($inputClassName)){
         echo $Output->executeEmty();

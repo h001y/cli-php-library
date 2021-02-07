@@ -15,7 +15,8 @@ class System
     }
 
     /**
-     * Class check existing class from command name in UserControllers
+     * Class check existing class from command name in UserControllers,
+     *
      * @param string $className
      * @return bool
      */
