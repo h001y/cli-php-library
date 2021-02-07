@@ -6,12 +6,12 @@ class System
 {
     /**
      * Class check existing class from command name in Kernel
-     * @param $className
+     * @param string $className
      * @return bool
      */
     public function isSystemClassExist(string $className) : bool
     {
-        return class_exists('\\Kernel\\Controllers\\' . $className. '.php');
+        return class_exists('/Kernel/Controllers/System.php');
     }
 
     /**
@@ -22,7 +22,7 @@ class System
      */
     public function isUsersClassExist(string $className) : bool
     {
-        return class_exists('\\UserControllers\\' . $className. '.php');
+        return class_exists('src/UserControllers/' . $className . '.php');
     }
 
     public function addUserClass($className)

@@ -15,6 +15,10 @@ Class Output extends Main
         var_dump( $this->getParam());
     }
 
+    /**
+     * Return string for empty command_name
+     * @return string
+     */
     public function executeEmty()
     {
         return 'Output for empty command name'.PHP_EOL;
