@@ -6,14 +6,13 @@ try {
     //Make full ClassName, adding Namespace
     $class = array_shift($argv);
     $className = '\\Kernel\\Controllers\\' . $class;
+    $userClasses = '\\UserControllers\\' . $class;
 
-    if (!class_exists($className)) {
-        $filename = 'src/UserControllers/' . $class . '.php';
-        $controller_text = '<?php echo "example";';
-
-        // create UserController
-        file_put_contents($filename, $controller_text);
-
+    if(empty($class)){
+        echo 'first time app';
+    } elseif (!class_exists($className) && !class_exists($userClasses)) {
+        $new_class = new Kernel\Controllers\NewClass();
+        $new_class->addController($class);
     } else {
         // Autoload function Register
         spl_autoload_register(function (string $className) {
