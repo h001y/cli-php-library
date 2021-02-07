@@ -9,7 +9,7 @@ class System
 
     }
 
-    public function isUsersClassExtist($className)
+    public function isUsersClassExist($className)
     {
 
     }
