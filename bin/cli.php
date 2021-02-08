@@ -25,13 +25,16 @@ try {
         die();
     }
 
-    if (!$System->isSystemClassExist($inputClassName)) {
-        echo 'System class does not exist'.PHP_EOL;
+    if($System->isCurrentClassOutput($inputClassName)){
+        echo $Output->execute();
+        die();
     }
 
-    if(!$System->isUsersClassExist($inputClassName)){
-        echo 'User class does not exist'.PHP_EOL;
-        $System->addUserClass($inputClassName, $conf['new_class']);
+    if(!$System->isSystemClassExist($inputClassName) && !$System->isUsersClassExist($inputClassName)){
+        if(!$System->isInputNameEqualSystem()){
+            $System->addUserClass($inputClassName, $conf['new_class']);
+            echo 'User class ' .$inputClass. ' succesfully added.'.PHP_EOL;
+        }
     } else {
 
     }

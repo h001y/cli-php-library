@@ -12,7 +12,24 @@ Class Output extends Main
 
     public function execute()
     {
-        var_dump( $this->getParam());
+        $result = '';
+
+        $arguments = $this->getParam()['arguments'];
+        $parametrs = $this->getParam()['parametrs'];
+        $className = $this->getClassName();
+
+        $result .= 'Command name: '.$className. ' '. PHP_EOL;
+        $result .= PHP_EOL;
+        $result .= 'Arguments: '.PHP_EOL;
+        foreach ($arguments as $argument){
+            $result .= '    - '. $argument . ' '.PHP_EOL;
+        }
+        $result .= 'Options: '.PHP_EOL;
+        foreach ($parametrs as $parametr){
+            $result .= '    - '. $parametr . ' '.PHP_EOL;
+        }
+        return $result;
+
     }
 
     /**
@@ -28,7 +45,7 @@ Class Output extends Main
         $user_controllers = scandir('src/UserControllers');
         foreach ($user_controllers as $user_controller){
             if($user_controller !== '.' && $user_controller !== '..'){
-                $result .=  pathinfo($user_controller, PATHINFO_FILENAME)
+                $result .=  pathinfo($user_controller, PATHINFO_FILENAME);
                 $result .= ' - user controller '.PHP_EOL;
             }
         }
