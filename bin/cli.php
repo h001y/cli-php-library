@@ -22,6 +22,7 @@ try {
 
     if (empty($inputClassName)){
         echo $Output->executeEmty();
+        die();
     }
 
     if (!$System->isSystemClassExist($inputClassName)) {

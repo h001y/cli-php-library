@@ -19,9 +19,19 @@ Class Output extends Main
      * Return string for empty command_name
      * @return string
      */
-    public function executeEmty()
+    public function executeEmty() : string
     {
-        return 'Output for empty command name'.PHP_EOL;
+        $result = '';
+        $user_controllers = [];
+        $result .= 'List of command :'.PHP_EOL;
+        $result .= 'Output - make output console for arguments and names for [], {} '.PHP_EOL;
+        $user_controllers = scandir('src/UserControllers');
+        foreach ($user_controllers as $user_controller){
+            if($user_controller !== '.' && $user_controller !== '..'){
+                $result .=  basename($user_controller).' - user controller '.PHP_EOL;
+            }
+        }
+        return $result;
     }
 }
 
