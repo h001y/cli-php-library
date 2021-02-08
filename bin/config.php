@@ -9,7 +9,7 @@ return [
                             use Kernel\Exceptions\CliException;
                             use Kernel\Controllers\Main;
                             
-                            Class Output extends Main
+                            Class ClassName extends Main
                             {
                                 protected function checkParams()
                                 {
