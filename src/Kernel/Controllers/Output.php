@@ -28,7 +28,8 @@ Class Output extends Main
         $user_controllers = scandir('src/UserControllers');
         foreach ($user_controllers as $user_controller){
             if($user_controller !== '.' && $user_controller !== '..'){
-                $result .=  basename($user_controller).' - user controller '.PHP_EOL;
+                $result .=  pathinfo($user_controller, PATHINFO_FILENAME)
+                $result .= ' - user controller '.PHP_EOL;
             }
         }
         return $result;
