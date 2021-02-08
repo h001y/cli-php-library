@@ -1,5 +1,11 @@
 # cli-php-library
-Command line php library. You can create command
+Command line php library. You can create command if it don't equal 
+Output or System.
+
+# How use it
+type 'php bin/cli.php' - for get all commands
+type 'php bin/cli.php Output ...' - for get arguments and opions in readable format
+
 
 ## Input arghs
 Variable of arghuments : 
