@@ -24,10 +24,9 @@ class System
         return file_exists('src/UserControllers/' . $className . '.php');
     }
 
-    public function addUserClass($className)
+    public function addUserClass($className, $classText)
     {
         $filename = 'src/UserControllers/' . $className . '.php';
-        $controller_text = '<?php echo "example";';
-        file_put_contents($filename, $controller_text);
+        file_put_contents($filename, $classText);
     }
 }

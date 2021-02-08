@@ -3,8 +3,8 @@
 try {
     unset($argv[0]);
     $conf = include('config.php');
-    $systemClassName = $conf['systemClass'];
-    $outputClassName = $conf['outputClass'];
+    $systemClassName = $conf['system_class'];
+    $outputClassName = $conf['output_class'];
     spl_autoload_register(function (string $systemClassName) {
         require_once __DIR__ . '/../src/' . $systemClassName . '.php';
     });
@@ -30,7 +30,7 @@ try {
 
     if(!$System->isUsersClassExist($inputClassName)){
         echo 'User class does not exist'.PHP_EOL;
-      $System->addUserClass($inputClassName);
+        $System->addUserClass($inputClassName, $conf['new_class']);
     } else {
 
     }
