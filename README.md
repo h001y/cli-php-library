@@ -2,6 +2,9 @@
 Command line php library. You can create command if it don't equal 
 Output or System.
 
+## Creating new command
+Example : 'php bin/cli.php newController {new_argument} [new_field]' - Will create a new controller in /src/UserControllers/newController.php with extends of Main controller
+
 ## How use it
 type 'php bin/cli.php' - for get all commands
 type 'php bin/cli.php Output ...' - for get arguments and opions in readable format
