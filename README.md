@@ -5,6 +5,9 @@ Output or System.
 ## Creating new command
 Example : 'php bin/cli.php newController {new_argument} [new_field]' - Will create a new controller in /src/UserControllers/newController.php with extends of Main controller
 
+## Command Output
+Output is command for outputting args or names in command line
+
 ## How use it
 type 'php bin/cli.php' - for get all commands
 type 'php bin/cli.php Output ...' - for get arguments and opions in readable format
